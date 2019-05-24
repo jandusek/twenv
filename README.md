@@ -27,7 +27,7 @@ Users of [bobthefish](https://github.com/oh-my-fish/theme-bobthefish) can add th
 
 ```
 function __bobthefish_prompt_twenv -S -d 'Display current twenv environment'
-    [ "$theme_display_desk" = 'no' -o -z "$TWENV" ]
+    [ "$theme_display_twenv" = 'no' -o -z "$TWENV" ]
     and return
 
     __bobthefish_start_segment $color_virtualfish
