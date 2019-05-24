@@ -22,3 +22,8 @@ twenv
 ❯ Env1
   Env2
 ```
+
+### ToDo
+
+* Current version expects usage of fish shell (see `run_cmd()`)
+* Before switching, the env variables from the previous environment should probably be undefined, this doesn't happen right now
