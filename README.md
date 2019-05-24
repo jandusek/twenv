@@ -15,3 +15,10 @@ npm link
 Edit `src/cli.js` and define the sets of env variables that should be switched between.
 
 Then simply invoke by `twenv` and choose from a CLI menu the desired environment.
+
+```
+twenv
+? Choose an environment (Use arrow keys)
+❯ Env1
+  Env2
+```

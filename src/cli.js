@@ -24,7 +24,7 @@ async function promptForEnv(options) {
     questions.push({
       type: 'list',
       name: 'environment',
-      message: 'Choose a Twilio environment',
+      message: 'Choose an environment',
       choices: Object.keys(envs).sort(),
       default: process.env.TWENV || default_env,
     });
