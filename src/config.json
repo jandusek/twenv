@@ -1,0 +1,12 @@
+{
+  "Env1": {
+    "ACCOUNT_SID": "ACxxx",
+    "AUTH_TOKEN": "xxx",
+    "PHONE_NUMBER": "+1xxx"
+  },
+  "Env2": {
+    "ACCOUNT_SID": "ACyyy",
+    "AUTH_TOKEN": "yyy",
+    "PHONE_NUMBER": "+1yyy"
+  }
+}
