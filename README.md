@@ -48,4 +48,3 @@ end
 ### ToDo
 
 * Current version expects usage of [fish shell](https://fishshell.com) (see `run_cmd()`)
-* Before switching, the env variables from the previous environment should probably be undefined, this doesn't happen right now
