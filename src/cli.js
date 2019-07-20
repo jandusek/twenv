@@ -48,12 +48,15 @@ export async function cli(args) {
   // unset the previous env variables
   const old_env = process.env.TWENV;
 
-  let unsets = Object.keys(envs[old_env]).map((env_var) => {
-    return new Promise((resolve, reject) => {
-      //console.log(`Unsetting: ${env_var}`)
-      run_cmd(`set -eU ${env_var}`, resolve);
-    });
-  })
+  let unsets = [];
+  if (envs[old_env]) {
+    unsets = Object.keys(envs[old_env]).map((env_var) => {
+      return new Promise((resolve, reject) => {
+        //console.log(`Unsetting: ${env_var}`)
+        run_cmd(`set -eU ${env_var}`, resolve);
+      });
+    })
+  }
 
   Promise.all(unsets).then(() => {
     // set the new env variables
