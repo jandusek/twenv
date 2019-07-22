@@ -7,6 +7,8 @@ require('dotenv');
 // from config.json
 let envs = require('./config.json');
 const default_env = "Env1";
+const twilio_cli = true;  // automatically define TWILIO_* versions for ACCOUNT_SID and AUTH_TOKEN
+const twilio_cli_vars = ['ACCOUNT_SID', 'AUTH_TOKEN'];
 
 async function promptForEnv(options) {
   const questions = [];
@@ -54,6 +56,9 @@ export async function cli(args) {
       return new Promise((resolve, reject) => {
         //console.log(`Unsetting: ${env_var}`)
         run_cmd(`set -eU ${env_var}`, resolve);
+        if (twilio_cli && twilio_cli_vars.includes(env_var)) {
+          run_cmd(`set -eU TWILIO_${env_var}`, resolve);
+        }
       });
     })
   }
@@ -65,6 +70,9 @@ export async function cli(args) {
       return new Promise((resolve, reject) => {
         //console.log(`Setting: ${env_var}`)
         run_cmd(`set -xU ${env_var} ${envs[options.environment][env_var]}`, resolve);
+        if (twilio_cli && twilio_cli_vars.includes(env_var)) {
+          run_cmd(`set -xU TWILIO_${env_var} ${envs[options.environment][env_var]}`, resolve);
+        }
       });
     });
     Promise.all(sets).then(() => {
